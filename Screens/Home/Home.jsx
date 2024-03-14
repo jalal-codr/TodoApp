@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Alert,View,Text,StyleSheet, TextInput,Button,TouchableOpacity } from 'react-native'
 import NewTask from '../../Components/Tasks/NewTask'
 import Form from '../../Components/Tasks/Form'
+import Task from '../../Components/Tasks/Task';
 
 function Home() {
     const [formState,setFormState] = useState(false);
@@ -26,6 +27,12 @@ function Home() {
                     onChangeText={text=>setTittle(text)}
                     defaultValue={""}
                 />
+                <TextInput
+                    style={styles.textBox}
+                    placeholder="Task desciption"
+                    onChangeText={text=>setTittle(text)}
+                    defaultValue={""}
+                />
                 <Button title='Create' onPress={()=>{
                     Alert.alert(tittle)
                     setFormState(false)
@@ -38,6 +45,7 @@ function Home() {
 
   return (
     <View style={styles.container}>
+        <Task/>
         {
             renderForm()
         }
@@ -57,9 +65,11 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         alignItems:'center',
+        width:390,
+        height:200,
     },
     newTask:{
-        marginTop:580,
+        marginTop:0,
         marginRight:280
     },
     textBox:{
