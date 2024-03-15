@@ -3,6 +3,7 @@ import { Alert,View,Text,StyleSheet, TextInput,Button,TouchableOpacity } from 'r
 import NewTask from '../../Components/Tasks/NewTask'
 import Form from '../../Components/Tasks/Form'
 import Task from '../../Components/Tasks/Task';
+import Footer from '../../Components/Navigation/Footer';
 
 function Home() {
     const [formState,setFormState] = useState(false);
@@ -54,7 +55,7 @@ function Home() {
                 <NewTask />
             </TouchableOpacity>
         </View>
-        
+        <Footer/>
     </View>
   )
 }
