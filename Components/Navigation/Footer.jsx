@@ -12,9 +12,6 @@ function Footer() {
     <BottomNavigationTab
       title={evaProps => <Text {...evaProps}>USERS</Text>}
     />
-    <BottomNavigationTab
-    title={evaProps => <Text {...evaProps}>USERS</Text>}
-  />
     
   )
 }
