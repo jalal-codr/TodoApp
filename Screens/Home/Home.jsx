@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Alert,View,StyleSheet, TextInput,Button,TouchableOpacity } from 'react-native'
-import { ApplicationProvider, Layout,Text } from '@ui-kitten/components';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { ApplicationProvider, Layout,Text,SafeAreaProvider } from '@ui-kitten/components';
+// import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Footer from '../../Components/Navigation/Footer';
 
 function Home() {

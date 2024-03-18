@@ -8,19 +8,7 @@ function Task({data}) {
     const DeleteIcon = () => <AntDesign name="delete" size={35}  />;
   return (
     <View>
-        <Text>Task Name</Text>
-
-        <View style={styles.iconDiv} >
-            <View style={styles.doneIcon}>
-            <TouchableOpacity>{DoneIcon()}</TouchableOpacity>
-            </View>
-
-            <View style={styles.deleteIcon}>
-            <TouchableOpacity  >{DeleteIcon()}</TouchableOpacity>
-            </View>
-        
-       
-        </View>
+    
         
         
     </View>
@@ -28,22 +16,4 @@ function Task({data}) {
 }
 
 export default Task
-const styles = StyleSheet.create({
-    text:{
 
-    },
-    iconDiv:{
-        backgroundColor:"orange",
-        width:350,
-    },
-    doneIcon:{
-        backgroundColor:'blue',
-        width:40,
-    },
-    deleteIcon:{
-        backgroundColor:"red",
-        width:40,
-        marginLeft:310,
-        marginTop:-34,
-    },
-})
