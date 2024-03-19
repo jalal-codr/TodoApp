@@ -16,17 +16,22 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier":"com.jalal-codr.TodoApp"
+      "bundleIdentifier": "com.jalal-codr.TodoApp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff",
-        "package":"com.jalal-codr.TodoApp"
+        "package": "com.jalal-codr.TodoApp"
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "aa4ff191-b342-4d40-9dde-bdddbcd5408c"
+      }
     }
   }
 }
