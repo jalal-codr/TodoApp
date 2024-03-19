@@ -45,8 +45,8 @@ function SignUp({navigation}) {
         placeholder='Confirm Password'
         onChangeText={nextValue => setConfPswd(nextValue)}
       />
-      <Button style={styles.btn} >
-        SignIn
+      <Button onPress={createUser} style={styles.btn} >
+        SignUp
       </Button>
     </View>
     </Layout>
