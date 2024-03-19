@@ -6,6 +6,8 @@ import Home from '../../Screens/Home/Home'
 import Tasks from '../../Screens/Tasks/Tasks';
 import Footer from './Footer';
 import Profile from '../../Screens/Profile/Profile';
+import SignUp from '../../Screens/SignIn/SignUp';
+import SignIn from '../../Screens/SignIn/SignIn';
 
 
 const Stack = createBottomTabNavigator();
@@ -17,7 +19,9 @@ function Navigation() {
       <Stack.Navigator tabBar={props=> <Footer {...props}/>} screenOptions={{ headerShown: false }}>
         <Stack.Screen name='Home' component={Home}/>
         <Stack.Screen name='Task' component={Tasks}/>
-        <Stack.Screen name='SignIn' component={Profile} />
+        <Stack.Screen name='Profile' component={Profile} />
+        <Stack.Screen name='SignIn' component={SignIn} />
+        <Stack.Screen name='SignUp' component={SignUp} />
       </Stack.Navigator>
   </NavigationContainer>
   )

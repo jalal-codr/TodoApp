@@ -3,8 +3,8 @@ import { Layout } from '@ui-kitten/components'
 
 function Tasks() {
   return (
-    <Layout>
-        
+    <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+
     </Layout>
   )
 }
