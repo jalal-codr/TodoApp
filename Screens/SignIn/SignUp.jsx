@@ -1,12 +1,29 @@
 import React, { useState } from 'react';
 import { Button,Icon, Input, Layout, Text } from '@ui-kitten/components';
 import { TouchableWithoutFeedback, StyleSheet, View } from 'react-native';
-import { useFonts } from 'expo-font';
+import {createUserWithEmailAndPassword} from 'firebase/auth'
+import {auth} from '../../FirbaseConfig'
 
 function SignUp({navigation}) {
     const [email, setEmail] = useState('');
     const [pswd,setPswd] = useState('');
     const [confPswd,setConfPswd] = useState('');
+
+
+  const createUser = async()=>{
+    try{
+      if(email && pswd==confPswd){
+        const response = await createUserWithEmailAndPassword(auth,email,pswd);
+        if(response){
+          navigation.navigate('Profile');
+        }
+      }
+    }
+    catch(err){
+      console.log(err.message)
+    }
+  }
+
   return (
     <Layout style={styles.container}>
     <View style={styles.form}>

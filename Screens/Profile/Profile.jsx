@@ -12,7 +12,7 @@ function Profile({navigation}) {
     if(!user){
       navigation.navigate("SignIn")
     }
-  })
+  },[])
     
   return (
     <>
