@@ -3,6 +3,7 @@ import { Button,Icon, Input, Layout, Text } from '@ui-kitten/components';
 import { TouchableWithoutFeedback, StyleSheet, View } from 'react-native';
 import {createUserWithEmailAndPassword} from 'firebase/auth'
 import {auth} from '../../FirbaseConfig'
+import GoogleAuth from '../../Components/Buttons/GoogleAuth';
 
 function SignUp({navigation}) {
     const [email, setEmail] = useState('');
@@ -48,6 +49,7 @@ function SignUp({navigation}) {
       <Button onPress={createUser} style={styles.btn} >
         SignUp
       </Button>
+      <GoogleAuth></GoogleAuth>
     </View>
     </Layout>
   )

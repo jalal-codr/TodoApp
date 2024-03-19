@@ -3,6 +3,7 @@ import { Button,Icon, Input, Layout, Text } from '@ui-kitten/components';
 import { TouchableWithoutFeedback, StyleSheet, View, TouchableOpacity, Alert } from 'react-native';
 import {signInWithEmailAndPassword} from 'firebase/auth'
 import {auth} from '../../FirbaseConfig'
+import GoogleAuth from '../../Components/Buttons/GoogleAuth';
 
 const AlertIcon = (props) => (
   <Icon {...props} name='alert-circle-outline' />
@@ -53,6 +54,7 @@ function SignIn({navigation}) {
         <Button style={styles.btn} onPress={signIn} >
           SignIn
         </Button>
+        <GoogleAuth/>
       </View>
     </Layout>
   );
