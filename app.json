@@ -19,10 +19,10 @@
       "bundleIdentifier": "com.jalal-codr.TodoApp"
     },
     "android": {
+      "package": "com.jalalCodr.TodoApp",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff",
-        "package": "com.jalal-codr.TodoApp"
+        "backgroundColor": "#ffffff"
       }
     },
     "web": {
