@@ -33,7 +33,7 @@ function SignIn({navigation}) {
   return (
     <Layout style={styles.container}>
       <View style={styles.form}>
-        <View>
+        <View style={styles.txt_view} >
           <TouchableOpacity onPress={()=>navigation.navigate("SignUp")}>
             <Text style={styles.txt} >
               SignUp?
@@ -56,7 +56,6 @@ function SignIn({navigation}) {
           SignIn
         </Button>
         <Divider></Divider>
-        <Text>or</Text>
         <Divider></Divider>
         <GoogleAuth/>
       </View>
@@ -74,8 +73,8 @@ const styles = StyleSheet.create({
     margin: 2,
   },
   form:{
-    height:300,
-    marginTop:180,
+    height:220,
+    marginTop:280,
     backgroundColor:'white',
     borderColor:100,
   },
@@ -84,6 +83,11 @@ const styles = StyleSheet.create({
   },
   txt:{
     color:'black'
+  },
+  txt_view:{
+    backgroundColor:"blue",
+    width:60,
+    marginLeft:350
   },
 
 });

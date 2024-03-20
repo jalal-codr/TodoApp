@@ -50,6 +50,7 @@ function SignUp({navigation}) {
         SignUp
       </Button>
       <Divider/>
+      <Divider/>
       <GoogleAuth></GoogleAuth>
     </View>
     </Layout>
@@ -66,8 +67,8 @@ const styles = StyleSheet.create({
       margin: 2,
     },
     form:{
-      height:300,
-      marginTop:180,
+      height:240,
+      marginTop:270,
       backgroundColor:'white',
       borderColor:100,
     },
