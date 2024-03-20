@@ -18,7 +18,7 @@ function Profile({navigation}) {
     <>
     <Layout style={styles.container}>
       <SafeAreaView>
-      <Text>Profile page</Text>
+      <Text style={styles.text}>Profile page</Text>
       </SafeAreaView>
     </Layout>
     </>
@@ -30,9 +30,8 @@ const styles = StyleSheet.create({
     container: {
       flex:1,
     },
-    input: {
-      flex: 1,
-      margin: 2,
+    text: {
+      marginTop:100,
     },
   });
   

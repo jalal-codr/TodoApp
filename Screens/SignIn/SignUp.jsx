@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button,Icon, Input, Layout, Text } from '@ui-kitten/components';
+import { Button,Divider, Input, Layout, Text } from '@ui-kitten/components';
 import { TouchableWithoutFeedback, StyleSheet, View } from 'react-native';
 import {createUserWithEmailAndPassword} from 'firebase/auth'
 import {auth} from '../../FirbaseConfig'
@@ -49,6 +49,7 @@ function SignUp({navigation}) {
       <Button onPress={createUser} style={styles.btn} >
         SignUp
       </Button>
+      <Divider/>
       <GoogleAuth></GoogleAuth>
     </View>
     </Layout>

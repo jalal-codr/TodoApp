@@ -4,6 +4,7 @@ import { TouchableWithoutFeedback, StyleSheet, View, TouchableOpacity, Alert } f
 import {signInWithEmailAndPassword} from 'firebase/auth'
 import {auth} from '../../FirbaseConfig'
 import GoogleAuth from '../../Components/Buttons/GoogleAuth';
+import { Divider } from '@ui-kitten/components';
 
 const AlertIcon = (props) => (
   <Icon {...props} name='alert-circle-outline' />
@@ -54,6 +55,9 @@ function SignIn({navigation}) {
         <Button style={styles.btn} onPress={signIn} >
           SignIn
         </Button>
+        <Divider></Divider>
+        <Text>or</Text>
+        <Divider></Divider>
         <GoogleAuth/>
       </View>
     </Layout>
