@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     form:{
       height:240,
       marginTop:270,
-      backgroundColor:'white',
+      // backgroundColor:'white',
       borderColor:100,
     },
     btn:{

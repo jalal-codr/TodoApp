@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   form:{
     height:220,
     marginTop:280,
-    backgroundColor:'white',
+    // backgroundColor:'white',
     borderColor:100,
   },
   btn:{
