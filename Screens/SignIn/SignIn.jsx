@@ -82,10 +82,10 @@ const styles = StyleSheet.create({
     margin: 2,  
   },
   txt:{
-    color:'black'
+    color:'white'
   },
   txt_view:{
-    backgroundColor:"blue",
+    // backgroundColor:"blue",
     width:60,
     marginLeft:350
   },
