@@ -3,6 +3,7 @@ import { Button,Icon, Input, Layout, Text } from '@ui-kitten/components';
 import { TouchableWithoutFeedback, StyleSheet, View, TouchableOpacity, Alert } from 'react-native';
 import {signInWithEmailAndPassword} from 'firebase/auth'
 import {auth} from '../../FirbaseConfig'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import GoogleAuth from '../../Components/Buttons/GoogleAuth';
 import { Divider } from '@ui-kitten/components';
 
@@ -21,6 +22,7 @@ function SignIn({navigation}) {
       if(email && pswd){
         const response = await signInWithEmailAndPassword(auth,email,pswd);
         if(response){
+          await AsyncStorage.setItem('user',response);
           navigation.navigate('Profile');
         }
       }
