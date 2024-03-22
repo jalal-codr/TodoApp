@@ -10,12 +10,14 @@ function Home() {
   return (
     <Layout  style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <View style={styles.nav}>
+        <Text style={styles.text}>Hi Jalal</Text>
         <Image style={styles.userLogo} source={logo}></Image>
       </View>
 
       <View style={styles.photoView}>
       <Image source={checkList}></Image>
-      <Text>What do you want to do today ?</Text>
+      <Text style={styles.h_Text} >What do you want to do today ?</Text>
+      <Text style={styles.p_text}>Tap the + to add a new task</Text>
       </View>
     </Layout>
   )
@@ -27,16 +29,27 @@ const styles = StyleSheet.create({
   nav:{
     flexDirection:'row',
     width:400,
-    marginTop:-140,
+    marginTop:-130,
   },
   userLogo:{
     width:50,
     height:50,
     borderRadius:20,
-    marginLeft:345
+    marginLeft:280
   },
   photoView:{
-    marginTop:200,
+    marginTop:190,
   },
+  text:{
+    marginLeft:15,
+    marginTop:15
+  },
+  h_Text:{
+    fontSize:20,
+  },
+  p_text:{
+    marginLeft:40,
+    marginTop:10,
+  }
 })
 
