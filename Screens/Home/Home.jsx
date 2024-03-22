@@ -10,7 +10,6 @@ function Home() {
   return (
     <Layout  style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <View style={styles.nav}>
-        <Text>Index</Text>
         <Image style={styles.userLogo} source={logo}></Image>
       </View>
 
@@ -27,16 +26,17 @@ export default Home
 const styles = StyleSheet.create({
   nav:{
     flexDirection:'row',
-    width:400
+    width:400,
+    marginTop:-140,
   },
   userLogo:{
     width:50,
     height:50,
     borderRadius:20,
-    marginLeft:310
+    marginLeft:345
   },
   photoView:{
-    marginTop:20,
+    marginTop:200,
   },
 })
 
