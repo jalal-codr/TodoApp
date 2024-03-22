@@ -3,8 +3,10 @@ import {Image,View,StyleSheet} from 'react-native'
 import { ApplicationProvider, Layout,Text,SafeAreaProvider } from '@ui-kitten/components';
 import checkList from '../../assets/Checklist.png'
 import logo from '../../assets/icon.png'
+import AntDesign from 'react-native-vector-icons/AntDesign'
 
 function Home() {
+  const plusIcon = () => <AntDesign color='white' name="pluscircle" size={45}  />;
    
 
   return (
@@ -18,6 +20,11 @@ function Home() {
       <Image source={checkList}></Image>
       <Text style={styles.h_Text} >What do you want to do today ?</Text>
       <Text style={styles.p_text}>Tap the + to add a new task</Text>
+      </View>
+      <View style={styles.plusIcon} >
+        {
+          plusIcon()
+        }
       </View>
     </Layout>
   )
@@ -50,6 +57,9 @@ const styles = StyleSheet.create({
   p_text:{
     marginLeft:40,
     marginTop:10,
-  }
+  },
+  plusIcon:{
+    
+  },
 })
 
