@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Image,View,StyleSheet} from 'react-native'
+import {Image,View,StyleSheet,TouchableOpacity} from 'react-native'
 import { ApplicationProvider, Layout,Text,SafeAreaProvider } from '@ui-kitten/components';
 import checkList from '../../assets/Checklist.png'
 import logo from '../../assets/icon.png'
@@ -22,9 +22,11 @@ function Home() {
       <Text style={styles.p_text}>Tap the + to add a new task</Text>
       </View>
       <View style={styles.plusIcon} >
+        <TouchableOpacity>
         {
           plusIcon()
         }
+        </TouchableOpacity>
       </View>
     </Layout>
   )
@@ -36,7 +38,7 @@ const styles = StyleSheet.create({
   nav:{
     flexDirection:'row',
     width:400,
-    marginTop:-130,
+    marginTop:-0,
   },
   userLogo:{
     width:50,
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
     marginLeft:280
   },
   photoView:{
-    marginTop:190,
+    marginTop:100,
   },
   text:{
     marginLeft:15,
@@ -59,7 +61,7 @@ const styles = StyleSheet.create({
     marginTop:10,
   },
   plusIcon:{
-    
+    marginTop:150,
   },
 })
 
