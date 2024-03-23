@@ -1,26 +1,48 @@
 import React, { useState } from 'react'
 import {Image,View,StyleSheet,TouchableOpacity, Alert, Button} from 'react-native'
-import { ApplicationProvider, Layout,Text,SafeAreaProvider } from '@ui-kitten/components';
+import { ApplicationProvider,Input, Layout,Text,InputProps  } from '@ui-kitten/components';
 import checkList from '../../assets/Checklist.png'
 import logo from '../../assets/icon.png'
 import AntDesign from 'react-native-vector-icons/AntDesign'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Form from '../../Components/Tasks/Form';
 
 function Home() {
   const plusIcon = () => <AntDesign color='white' name="pluscircle" size={45}  />;
+  const cancleIcon = () => <MaterialIcons color='white' name="cancel" size={25}  />;
 
   const [check,setCheck] = useState(false)
+  const [taskName,setTaskName] = useState('')
+  const  [description,setDescription] = useState('')
 
 
 
   const plusBtnClick = ()=>{
     setCheck(true)
   }
+  const cancleBtnClick = ()=>{
+    setCheck(false)
+  }
 
   const render = ()=>{
     if(check){
       return(<>
-      <Text>Hello</Text>
+      <View style={styles.taskView}>
+      <View style={styles.cancleIcon} ><TouchableOpacity onPress={cancleBtnClick} >{cancleIcon()}</TouchableOpacity></View>
+      <Input
+      placeholder='Task name'
+      value={taskName}
+      onChangeText={value => setTaskName(value)}
+    />
+    <Input
+        multiline={true}
+        value={description}
+        onChange={nextValue => setDescription(nextValue)}
+        textStyle={styles.inputTextStyle}
+        placeholder='Description'
+        // {...multilineInputState}
+      />
+      </View>
       </>)
     }else{
       return(<>
@@ -43,7 +65,7 @@ function Home() {
    
 
   return (
-    <Layout  style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <Layout  style={styles.layout}>
       <View style={styles.nav}>
         <Text style={styles.text}>Hi Jalal</Text>
         <Image style={styles.userLogo} source={logo}></Image>
@@ -59,10 +81,14 @@ function Home() {
 export default Home
 
 const styles = StyleSheet.create({
+  layout:{
+      alignItems: 'center',
+      height:900
+    },
   nav:{
     flexDirection:'row',
     width:400,
-    marginTop:-0,
+    marginTop:50
   },
   userLogo:{
     width:50,
@@ -87,5 +113,13 @@ const styles = StyleSheet.create({
   plusIcon:{
     marginTop:150,
   },
+  inputTextStyle: {
+    minHeight: 64,
+  },
+  cancleIcon:{
+    marginBottom:5,
+  },
+  taskView:{
+  }
 })
 
