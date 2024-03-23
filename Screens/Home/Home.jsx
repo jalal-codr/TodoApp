@@ -1,19 +1,24 @@
 import React, { useState } from 'react'
 import {Image,View,StyleSheet,TouchableOpacity, Alert, Button} from 'react-native'
-import { ApplicationProvider,Input, Layout,Text,InputProps  } from '@ui-kitten/components';
+import { Datepicker,Input, Layout,Text,InputProps  } from '@ui-kitten/components';
 import checkList from '../../assets/Checklist.png'
 import logo from '../../assets/icon.png'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import EvilIcons from 'react-native-vector-icons/EvilIcons'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Form from '../../Components/Tasks/Form';
 
 function Home() {
   const plusIcon = () => <AntDesign color='white' name="pluscircle" size={45}  />;
   const cancleIcon = () => <MaterialIcons color='white' name="cancel" size={25}  />;
+  const calendarIcon = () => <EvilIcons color='white' name="calendar" size={25}  />;
+  const timerIcon = () => <MaterialCommunityIcons color='white' name="timer" size={25}  />;
 
   const [check,setCheck] = useState(false)
   const [taskName,setTaskName] = useState('')
   const  [description,setDescription] = useState('')
+  const [date, setDate] = useState(new Date());
 
 
 
@@ -41,6 +46,14 @@ function Home() {
         textStyle={styles.inputTextStyle}
         placeholder='Description'
         // {...multilineInputState}
+      />
+      <Datepicker
+        label='Due date'
+        // caption='Caption'
+        placeholder='Pick Date'
+        date={date}
+        onSelect={nextDate => setDate(nextDate)}
+        accessoryRight={calendarIcon()}
       />
       </View>
       </>)
