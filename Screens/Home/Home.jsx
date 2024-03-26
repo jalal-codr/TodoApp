@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {Image,View,StyleSheet,TouchableOpacity, Alert} from 'react-native'
-import { Datepicker,Input, Layout,Text,Button  } from '@ui-kitten/components';
+import { Datepicker,Input, Layout,Text,Button, InputProps  } from '@ui-kitten/components';
 import checkList from '../../assets/Checklist.png'
 import logo from '../../assets/icon.png'
 import AntDesign from 'react-native-vector-icons/AntDesign'
@@ -11,6 +11,13 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Form from '../../Components/Tasks/Form';
 
+
+
+const useInputState = (initialValue = '') => {
+  const [value, setValue] = useState(initialValue);
+  return { value, onChangeText: setValue };
+};
+
 function Home() {
   const plusIcon = () => <AntDesign color='white' name="pluscircle" size={45}  />;
   const sendIcon = () => <Ionicons color='white' name="send" size={20}  />;
@@ -20,7 +27,7 @@ function Home() {
 
   const [check,setCheck] = useState(false)
   const [taskName,setTaskName] = useState('')
-  const  [description,setDescription] = useState('')
+  const  description = useInputState()
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState(new Date());
   const [mode, setMode] = useState('time');
@@ -51,6 +58,16 @@ function Home() {
     setCheck(false)
   }
 
+  const createTask = ()=>{
+    const task = {
+      name:taskName,
+      description:description.value,
+      date:date,
+      time:time,
+    }
+    console.log(task)
+  }
+
   const render = ()=>{
     if(check){
       return(<>
@@ -64,11 +81,11 @@ function Home() {
     <Input
         multiline={true}
         style={styles.description}
-        value={description}
-        onChange={nextValue => setDescription(nextValue)}
+        // value={description}
+        // onChange={nextValue => setDescription(nextValue)}
         textStyle={styles.inputTextStyle}
         placeholder='Description'
-        // {...multilineInputState}
+        {...description}
       />
       <Datepicker
         label='Due date'
@@ -93,7 +110,7 @@ function Home() {
         />
       )}
     </View>
-    <Button accessoryRight={sendIcon()} style={styles.taskBtn} onPress={() => Alert.alert("Btn pressed")}>
+    <Button accessoryRight={sendIcon()} style={styles.taskBtn} onPress={createTask}>
         CREATE
     </Button>
       </View>
