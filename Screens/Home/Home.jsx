@@ -7,6 +7,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import EvilIcons from 'react-native-vector-icons/EvilIcons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import DateTimePicker from '@react-native-community/datetimepicker';
 import Form from '../../Components/Tasks/Form';
 
 function Home() {
@@ -19,6 +20,25 @@ function Home() {
   const [taskName,setTaskName] = useState('')
   const  [description,setDescription] = useState('')
   const [date, setDate] = useState(new Date());
+  const [time, setTime] = useState(new Date());
+  const [mode, setMode] = useState('time');
+  const [show, setShow] = useState(false);
+
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
+    setTime(currentDate);
+  };
+
+  const showMode = currentMode => {
+    setShow(true);
+    setMode(currentMode);
+  };
+
+  const showTimepicker = () => {
+    showMode('time');
+  };
 
 
 
@@ -55,6 +75,21 @@ function Home() {
         onSelect={nextDate => setDate(nextDate)}
         accessoryRight={calendarIcon()}
       />
+      <View>
+      <View>
+       <TouchableOpacity onPress={showTimepicker}>{timerIcon()}</TouchableOpacity>
+      </View>
+      {show && (
+        <DateTimePicker
+          testID="dateTimePicker"
+          value={time}
+          mode={mode}
+          is24Hour={true}
+          display="default"
+          onChange={onChange}
+        />
+      )}
+    </View>
       </View>
       </>)
     }else{
