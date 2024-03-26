@@ -78,9 +78,6 @@ function Home() {
       <View>
       <View style={styles.timeLogo}>
        <TouchableOpacity onPress={showTimepicker}>{timerIcon()}</TouchableOpacity>
-       <Button onPress={() => Alert.alert("Btn pressed")}>
-        BUTTON
-      </Button>
       </View >
       {show && (
         <DateTimePicker
@@ -93,6 +90,9 @@ function Home() {
         />
       )}
     </View>
+    <Button style={styles.taskBtn} onPress={() => Alert.alert("Btn pressed")}>
+        BUTTON
+    </Button>
       </View>
       </>)
     }else{
@@ -176,5 +176,8 @@ const styles = StyleSheet.create({
   timeLogo:{
     marginTop:10,
   },
+  taskBtn:{
+    marginTop:10,
+  }
 })
 
