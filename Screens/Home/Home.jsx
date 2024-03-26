@@ -76,9 +76,9 @@ function Home() {
         accessoryRight={calendarIcon()}
       />
       <View>
-      <View>
+      <View style={styles.timeLogo}>
        <TouchableOpacity onPress={showTimepicker}>{timerIcon()}</TouchableOpacity>
-      </View>
+      </View >
       {show && (
         <DateTimePicker
           testID="dateTimePicker"
@@ -168,6 +168,10 @@ const styles = StyleSheet.create({
     marginBottom:5,
   },
   taskView:{
-  }
+    marginTop:80,
+  },
+  timeLogo:{
+    marginTop:10,
+  },
 })
 
