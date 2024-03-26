@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import {Image,View,StyleSheet,TouchableOpacity, Alert, Button} from 'react-native'
-import { Datepicker,Input, Layout,Text,InputProps  } from '@ui-kitten/components';
+import {Image,View,StyleSheet,TouchableOpacity, Alert} from 'react-native'
+import { Datepicker,Input, Layout,Text,Button  } from '@ui-kitten/components';
 import checkList from '../../assets/Checklist.png'
 import logo from '../../assets/icon.png'
 import AntDesign from 'react-native-vector-icons/AntDesign'
@@ -78,6 +78,9 @@ function Home() {
       <View>
       <View style={styles.timeLogo}>
        <TouchableOpacity onPress={showTimepicker}>{timerIcon()}</TouchableOpacity>
+       <Button onPress={() => Alert.alert("Btn pressed")}>
+        BUTTON
+      </Button>
       </View >
       {show && (
         <DateTimePicker
