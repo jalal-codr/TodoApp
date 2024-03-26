@@ -61,6 +61,7 @@ function Home() {
     />
     <Input
         multiline={true}
+        style={styles.description}
         value={description}
         onChange={nextValue => setDescription(nextValue)}
         textStyle={styles.inputTextStyle}
@@ -177,6 +178,9 @@ const styles = StyleSheet.create({
     marginTop:10,
   },
   taskBtn:{
+    marginTop:10,
+  },
+  description:{
     marginTop:10,
   }
 })
