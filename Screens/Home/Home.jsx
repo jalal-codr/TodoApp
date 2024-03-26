@@ -4,6 +4,7 @@ import { Datepicker,Input, Layout,Text,Button  } from '@ui-kitten/components';
 import checkList from '../../assets/Checklist.png'
 import logo from '../../assets/icon.png'
 import AntDesign from 'react-native-vector-icons/AntDesign'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import EvilIcons from 'react-native-vector-icons/EvilIcons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -12,6 +13,7 @@ import Form from '../../Components/Tasks/Form';
 
 function Home() {
   const plusIcon = () => <AntDesign color='white' name="pluscircle" size={45}  />;
+  const sendIcon = () => <Ionicons color='white' name="send" size={20}  />;
   const cancleIcon = () => <MaterialIcons color='white' name="cancel" size={25}  />;
   const calendarIcon = () => <EvilIcons color='white' name="calendar" size={25}  />;
   const timerIcon = () => <MaterialCommunityIcons color='white' name="timer" size={25}  />;
@@ -91,8 +93,8 @@ function Home() {
         />
       )}
     </View>
-    <Button style={styles.taskBtn} onPress={() => Alert.alert("Btn pressed")}>
-        BUTTON
+    <Button accessoryRight={sendIcon()} style={styles.taskBtn} onPress={() => Alert.alert("Btn pressed")}>
+        CREATE
     </Button>
       </View>
       </>)
