@@ -10,20 +10,15 @@ function Profile({navigation}) {
   const[user,setUser]=useState();
 
   useEffect(() => {
-    const getUser = async()=>{
-      try{
-        const userData = await AsyncStorage.getItem('user')
-        if(userData.email){
-          console.log(userData)
-          setUser(userData)
-        }
-      }
-      catch(err){
-        console.log(err)
-      }
-    }
-    getUser();
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        setUser(currentUser);
+    });
+
+
+    // Clean up subscription on unmount
+    unsubscribe();
 }, []);
+
 
 
   useEffect(()=>{

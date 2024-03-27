@@ -22,7 +22,7 @@ function SignIn({navigation}) {
       if(email && pswd){
         const response = await signInWithEmailAndPassword(auth,email,pswd);
         if(response){
-          await AsyncStorage.setItem('user',response);
+          // await AsyncStorage.setItem('user',response);
           navigation.navigate('Profile');
         }
       }
@@ -57,8 +57,7 @@ function SignIn({navigation}) {
         <Button style={styles.btn} onPress={signIn} >
           SignIn
         </Button>
-        <Divider></Divider>
-        <Divider></Divider>
+        <Divider style={styles.divider} ></Divider>
         <GoogleAuth/>
       </View>
     </Layout>
@@ -73,15 +72,17 @@ const styles = StyleSheet.create({
   },
   input: {
     margin: 2,
+    marginBottom:20,
   },
   form:{
     height:220,
-    marginTop:280,
+    marginTop:200,
     // backgroundColor:'white',
     borderColor:100,
   },
   btn:{
     margin: 2,  
+    marginBottom:50
   },
   txt:{
     color:'white'
@@ -89,7 +90,12 @@ const styles = StyleSheet.create({
   txt_view:{
     // backgroundColor:"blue",
     width:60,
-    marginLeft:350
+    marginLeft:350,
+    marginBottom:20,
   },
+  divider:{
+    marginBottom:20,
+    height:2
+  }
 
 });

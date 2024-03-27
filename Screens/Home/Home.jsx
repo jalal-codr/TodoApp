@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import {Image,View,StyleSheet,TouchableOpacity, Alert} from 'react-native'
 import { Datepicker,Input, Layout,Text,Button, InputProps  } from '@ui-kitten/components';
 import checkList from '../../assets/Checklist.png'
@@ -9,7 +9,9 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import EvilIcons from 'react-native-vector-icons/EvilIcons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import DateTimePicker from '@react-native-community/datetimepicker';
-import Form from '../../Components/Tasks/Form';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import{onAuthStateChanged} from 'firebase/auth'
+import { auth } from '../../FirbaseConfig';
 
 
 
@@ -32,7 +34,29 @@ function Home() {
   const [time, setTime] = useState(new Date());
   const [mode, setMode] = useState('time');
   const [show, setShow] = useState(false);
+  const[user,setUser]=useState();
 
+  useEffect(() => {
+    const getUser = async()=>{
+      try{
+        const userData = await AsyncStorage.getItem('user')
+        if(userData.email){
+          console.log(userData)
+          setUser(userData)
+        }
+      }
+      catch(err){
+        console.log(err)
+      }
+    }
+    getUser();
+}, []);
+
+useEffect(()=>{
+  if(user){
+    console.log(user)
+  }
+},[])
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
