@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button,Divider, Input, Layout, Text } from '@ui-kitten/components';
-import { TouchableWithoutFeedback, StyleSheet, View } from 'react-native';
+import { TouchableWithoutFeedback, StyleSheet, View, TouchableOpacity } from 'react-native';
 import {createUserWithEmailAndPassword} from 'firebase/auth'
 import {auth} from '../../FirbaseConfig'
 import GoogleAuth from '../../Components/Buttons/GoogleAuth';
@@ -13,7 +13,7 @@ function SignUp({navigation}) {
 
   const createUser = async()=>{
     try{
-      if(email && pswd==confPswd){
+      if(email!='' && pswd!='' && pswd==confPswd){
         const response = await createUserWithEmailAndPassword(auth,email,pswd);
         if(response){
           navigation.navigate('Profile');
@@ -52,6 +52,15 @@ function SignUp({navigation}) {
       <Divider style={styles.divider}/>
       <GoogleAuth></GoogleAuth>
     </View>
+    <View style={styles.signInView} >
+      <Text>
+      Already have an account ?
+      
+      </Text>
+      <View style={styles.signInBtn}>
+      <TouchableOpacity onPress={()=>navigation.navigate('SignIn')}  ><Text>SignIn</Text></TouchableOpacity>
+      </View>
+    </View>
     </Layout>
   )
 }
@@ -79,6 +88,14 @@ const styles = StyleSheet.create({
       marginBottom:30,
       height:2,
       marginTop:20
+    },
+    signInView:{
+      marginTop:260,
+      marginLeft:100
+    },
+    signInBtn:{
+      marginTop:-20,
+      marginLeft:180
     }
   
   });
