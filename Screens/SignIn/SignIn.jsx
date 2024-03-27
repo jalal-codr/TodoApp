@@ -35,13 +35,6 @@ function SignIn({navigation}) {
   return (
     <Layout style={styles.container}>
       <View style={styles.form}>
-        <View style={styles.txt_view} >
-          <TouchableOpacity onPress={()=>navigation.navigate("SignUp")}>
-            <Text style={styles.txt} >
-              SignUp?
-            </Text>
-          </TouchableOpacity>
-        </View>
         <Input
           value={email}
           style={styles.input}
@@ -58,7 +51,19 @@ function SignIn({navigation}) {
           SignIn
         </Button>
         <Divider style={styles.divider} ></Divider>
+        <View style={styles.googleBtn}>
         <GoogleAuth/>
+        </View>
+        <View style={styles.txt_view} >
+          <Text>Don't have an account ?</Text>
+          <TouchableOpacity onPress={()=>navigation.navigate("SignUp")}>
+            <View style={styles.signUpBtn}>
+            <Text style={styles.txt} >
+              SignUp
+            </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
     </Layout>
   );
@@ -89,13 +94,20 @@ const styles = StyleSheet.create({
   },
   txt_view:{
     // backgroundColor:"blue",
-    width:60,
-    marginLeft:350,
-    marginBottom:20,
+    // width:60,
+    marginLeft:100,
+    marginTop:150
   },
   divider:{
     marginBottom:20,
     height:2
+  },
+  signUpBtn:{
+    marginLeft:165,
+    marginTop:-20
+  },
+  googleBtn:{
+    marginTop:50,
   }
 
 });
